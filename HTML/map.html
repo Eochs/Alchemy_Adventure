@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body">
+    <div id="map">
+        <h1><img id="img" src="./map2.0.png"></h1>
+    
+        <div class="location" id="portBtn">
+                <svg width="60" height="20">
+                    <a href="./port.html" id="portBtn">
+                        <path d="M   0    0
+                                L  60   0
+                                L  60  20
+                                L  0   20
+                                Z"
+                            fill="gray"/>
+                        <text x="30"
+                            y="15"
+                            fill="#FFFFFF"
+                            text-anchor="middle"
+                            align-baseline="middle">
+                            Port
+                        </text>
+                    </a>
+                </svg>
+            </div>
+        <div class="location" id="forestBtn">
+            <svg width="50" height="25">
+                <a href="./forest.html" id="forestBtn">
+                    <path d="M   0    0
+                            L  50   0
+                            L  50  25
+                            L  0   25
+                            Z"
+                        fill="green"/>
+                    <text x="25"
+                        y="15"
+                        fill="#FFFFFF"
+                        text-anchor="middle"
+                        align-baseline="middle">
+                        Forest
+                    </text>
+                </a>
+            </svg>
+        </div>
+
+        <div class="location" id="lakeBtn">
+                <svg width="50" height="25">
+                    <a href="./lake.html" id="lakeBtn">
+                        <path d="M   0    0
+                                L  50   0
+                                L  50  25
+                                L  0   25
+                                Z"
+                            fill="teal"/>
+                        <text x="25"
+                            y="15"
+                            fill="#FFFFFF"
+                            text-anchor="middle"
+                            align-baseline="middle">
+                            Lake
+                        </text>
+                    </a>
+                </svg>
+            </div>
+      
+            <div class="location" id="caveBtn">
+                    <svg width="50" height="25">
+                        <a href="./cave.html" id="caveBtn">
+                            <path d="M   0    0
+                                    L  50   0
+                                    L  50  25
+                                    L  0   25
+                                    Z"
+                                fill="gray"/>
+                            <text x="25"
+                                y="15"
+                                fill="#FFFFFF"
+                                text-anchor="middle"
+                                align-baseline="middle">
+                                Cave
+                            </text>
+                        </a>
+                    </svg>
+                </div>
+        <div class="location" id="mountainBtn">
+                    <svg width="80" height="25">
+                        <a href="./mountain.html" id="mountainBtn">
+                            <path d="M   0    0
+                                    L  80   0
+                                    L  80  25
+                                    L  0   25
+                                    Z"
+                                fill="gray"/>
+                            <text x="40"
+                                y="15"
+                                fill="#FFFFFF"
+                                text-anchor="middle"
+                                align-baseline="middle">
+                                Mountain
+                            </text>
+                        </a>
+                    </svg>
+                </div>
+         <div class="location" id="landOfDeadBtn">
+            <svg width="50" height="25">
+                     <a href="./landOfDead.html" id="landOfDeadBtn">
+                                <path d="M   0    0
+                                        L  50   0
+                                        L  50  25
+                                        L  0   25
+                                        Z"
+                                    fill="blue"/>
+                                <text x="25"
+                                    y="15"
+                                    fill="#FFFFFF"
+                                    text-anchor="middle"
+                                    align-baseline="middle">
+                                    Land of the dead
+                                </text>
+                            </a>
+                        </svg>
+                    </div>    
+                    <div class="location" id="villageBtn">
+                            <svg width="50" height="25">
+                                     <a href="./village.html" id="villageBtn">
+                                                <path d="M   0    0
+                                                        L  50   0
+                                                        L  50  25
+                                                        L  0   25
+                                                        Z"
+                                                    fill="brown"/>
+                                                <text x="25"
+                                                    y="15"
+                                                    fill="#FFFFFF"
+                                                    text-anchor="middle"
+                                                    align-baseline="middle">
+                                                    Village
+                                                </text>
+                                            </a>
+                                        </svg>
+                                    </div>                  
+    </div>
+</body>
+</html>
+
+<script>
+   // var fakeLocalStorage = {'portBtn': 'visited','forestBtn': 'not_visited', 'coastBtn': 'not_visited', 'caveBtn': 'not_visited','mountainBtn': 'not_visited','lakeBtn': 'not_visited'}
+   var localStorage = window.localStorage;
+    
+    var allLocations = document.getElementsByClassName('location');
+    var storage = window.localStorage;
+    
+    for (var i=0; i < allLocations.length; i=i+1) { 
+        if (localStorage[allLocations[i].id] == 'visited') {
+            allLocations[i].style.visibility = "visible"; 
+        } else {
+            allLocations[i].style.visibility = "hidden";
+        }
+    }
+</script>
+
+<style>
+    html, body {
+    height: 100%;
+    background: 100%;
+}
+
+    img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    #map {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+
+}
+    #map svg {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+}
+#coastBtn svg {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+#mountainBtn svg {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+#lakeBtn svg {
+  position: absolute;
+  top: 55%;
+  left: 45%;
+}
+#caveBtn svg {
+  position: absolute;
+  top: 60%;
+  left: 35%;
+}
+#villageBtn svg {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}
+#portBtn svg {
+  position: absolute;
+  top: 78%;
+  left: 75%;
+}
+</style>

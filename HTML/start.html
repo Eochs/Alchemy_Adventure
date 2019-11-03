@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body >
+    <h1>
+         <div class="fade-in" id="wakeUp">
+            <h1>
+                Hey... Hey you. Wake up.
+            </h1>
+            <p id="fade-in2">
+                Good you're alive. I found you washed up on the beach. Do you know where you are?
+            </p>
+            <a href="#no">No</a>  
+            <a href="#yes">Yes</a>
+        </div> 
+    </h1>
+
+    <div id="no">
+            <h1>Ah I thought not.</h1>
+            <p>This land is not what it once was. This island is now plagued by disease and dying. You might be just the person I've been waiting for to help heal this place.
+                I could use your help, I am traveling around trying to find a cure. Care to join me?
+            </p>
+            <a href="#join">Join</a>
+            <br>
+            <a href="#notForMe">I don't want to go on an adventure</a>
+        </div>
+        <div id="yes">
+            <h1>Really, is that so. </h1>
+           <p>Lying to the one who saved you from certain death, that is a great way 
+            to make friends. 
+            I don't think you know where you are.</p> 
+            <br>
+            <a href="#no">I don't know where I am</a>
+        </div>
+        <div id="notForMe">
+           <h1>Well too bad you don't have a choice.</h1> 
+            <p>Come on lets get going. Here is the map, take a look and find your way
+            to meet me at the Port</p>
+            <br>
+            <a href="map.html">Look at map</a>
+        </div>
+
+        <div id="join">
+            <h1>Great! </h1>
+            <p>
+                I had a good feeling about you. Glad I saved you afterall.
+                Heres a map to the Island so you can get acquainted, I'm going to the Port, meet me there.
+            </p>
+            <a href="map.html">Look at map</a>
+        </div>
+        <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+
+</body>
+</html>
+<script>
+    var localStorage = window.localStorage;
+    localStorage.setItem('portBtn', 'visited');
+    localStorage.setItem('forestBtn', 'not_visited');
+    localStorage.setItem('landOfDeadBtn', 'not_visited');
+    localStorage.setItem('caveBtn', 'not_visited');
+    localStorage.setItem('mountainBtn', 'not_visited');
+    localStorage.setItem('lakeBtn', 'not_visited');
+    localStorage.setItem('villageBtn', 'not_visited');
+</script>
+
+<style>
+   html, body {
+    background-color: black;  
+    font-family: Zapf Chancery, cursive;
+    height:100%;
+  /* Disable Scroll */
+    overflow:hidden;
+    text-align: center;
+    color: aliceblue;
+    font-size: 40px;
+    padding: 30px 20px 20px 20px;
+    font: 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+   }  
+h1 {
+    padding-top: 10px;
+
+}
+a{
+    color: aliceblue;
+    text-decoration: none;
+}
+a:hover{
+        text-decoration: underline;
+        color: aquamarine;
+    }
+
+div {
+  height: 100%;
+}
+    
+   #wakeUp, #no{
+       color: aliceblue;
+   }
+   .fade-in{
+       animation: fadeIn 10s;
+       font-size: 40px;
+       text-align: center;
+
+   }
+   #fade-in2, #no, a {
+       animation: fadeIn 20s;
+       font-size: 40px;
+       text-align: center;
+
+   }
+   @keyframes fadeIn {
+       from{
+           opacity: 0;
+       }
+       to {
+           opacity: 1;
+       }
+   }
+   
+</style>

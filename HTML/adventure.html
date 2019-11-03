@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="adventure">   
+        <h1>Hello there, I've been expecting you. </h1>
+        <p>Would you like to go on an adventure?</p>
+        <p><img src="http://res.freestockphotos.biz/pictures/16/16556-close-up-view-of-a-raccoon-pv.jpg"></p>
+        <a href="#yes">Yes</a>
+        <a href="#no">No</a>
+    </div>
+    <div id="no">
+        <h1>I think you should reconsider.</h1>
+        <p>Really you dont have a choice.</p>
+        <a href="#adventure">Be brave and take the quest?</a>
+    </div>
+
+    <div id="yes">
+        <h1>Good choice. Our realm is plagued by disease and we are in need of a cure. </h1>
+        <p>You must go and find the ingredients to develop the potion to save us all. You must start immediately, would you like to head to the forest or the abandoned village first?</p>
+        <a href="#forest">I will go to the forest</a>
+        <a href="#village">I will go to the abandoned village</a>
+    </div>
+   
+    <div id="village">
+        <h1>The village is not as quit as it seemed</h1>
+        <p>You are attacked by bandits and killed.</p>
+        <a href="#adventure">Start over, with your last life.</a>
+    </div>
+
+    <div id="forest">
+        <h1>You venture deep into the forest and come across the land of the Centuars</h1>
+        <p>You are in luck as the Centaurs are healers and will help you create your potion. They give you Arctium Lappa root to start your potion. You must now choose to go to the waterfall or the cave.</p>
+        <a href="#cave">You journey on, finally reaching the cave.</a>
+        <a href="#waterfall">You journey onward to the waterfall.</a>
+    </div>
+   
+    <div id="cave">
+        <h1>You enter the dark cave.</h1>
+        <p>You were attacked by rats of enormous size. You died.</p>
+        <a href="#adventure">Start over, this is your last chance.</a>
+    </div>
+   
+    <div id="waterfall">
+        <h1>You approach the towering waterfall. There you encounter a water nymph.</h1>
+        <p>I hear you are attempting to create a potion to save the realm from the deadly plague. I will give you a chance to earn the final piece of the potion, but you must answer this riddle correctly. </p>
+        <p>This thing all things devour: Birds, beasts, trees, flowers; Gnaws iron, bites steel; Grinds hard stones to meal; Slays king, ruins towns And beats high mountain down.</p>
+        <a href="#wrong">What is war</a>
+        <a href="#correct">what is time</a>
+        <a href="#wrong">what is envy</a>
+    </div>
+    <div id="wrong">
+        <hi>It appears you have guessed wrong.</hi>
+        <p>I will give you one more chance.</p>
+
+        <a href="#waterfall">Choose again.</a>
+    </div>
+   
+    <div id="correct">
+        <h1>You are wise indeed, I will give you what you seek.</h1>
+        <p>You must hurry on your way, for you are running out of time.</p>
+        <a href="continue_on">Continue on your quest</a>
+    </div>
+   
+    <div id="#continue_on">
+        <h1>You now have all of the ingredients but must find a skilled wizard to finish your potion.</h1>
+    </div>
+    </body>
+</html>
+
+<style>
+    html, body {
+  height:100%;
+  /* Disable Scroll */
+  overflow:hidden;
+  text-align: center;
+  background: teal;
+  font-size: 17px;
+}
+
+div {
+  height: 100%;
+}
+img {
+    max-width: 80%;
+    height: 400px;
+}
+</style>

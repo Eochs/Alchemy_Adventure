@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background: url(https://static.planetminecraft.com/files/resource_media/screenshot/1804/iskillia-1-1516988145.jpg); background-size: 100%;">
+        
+        <div class="location" id="portBtn">
+            Welcome to the land of <strong>Somnium</strong>. This Port is our only connection to the outside world and a major part of our trade.
+            However, it is not as busy or vibrant as it once was. I have gotten the supplies we will need for our journey. I am heading into the forest, are you ready to go?
+           <br>
+            <a href="#yes">Yes</a>
+            <a href="#no">No</a>
+        </div>
+        <div id="no">
+                <h1>Well hurry up we need to get moving.</h1>
+                <p>Are you ready now?</p>
+                <a href="#yes">Get going</a>
+                <a href="#drink">Stay at the Port</a>
+            </div>
+        <div id="drink">
+            You find yourself in the local tavern and get drunk on Miruvor mead.
+            The locals rob you and you are shanghaied onto a ship.
+        </div>
+            <div id="yes">
+                <h1>Great! </h1>
+                <p>I overheard that the Forest of Umbra has been overrun by a sickness. I think we should start there.
+                    Look at the map to find our route.
+                </p>
+                <a id="forestBtn" href="map.html">Look at map</a>
+            </div>
+            <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+
+</body>
+</html>
+<script>
+   
+    document.getElementById("forestBtn").addEventListener("click", forestVisited);
+
+    function forestVisited(){
+        window.localStorage.setItem('forestBtn', 'visited');
+    }
+
+
+</script>
+<style>
+    html, body {
+  height:100%;
+  /* Disable Scroll */
+  overflow:hidden;
+  text-align: center;
+  font-size: 30px;
+  padding: 40px 50px 0px 50px;
+  font: 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+}
+
+div {
+  height: 100%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+        text-decoration: underline;
+        color: aquamarine;
+    }
+</style>

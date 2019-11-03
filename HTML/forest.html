@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background: url(https://i.pinimg.com/originals/a4/1c/bc/a41cbc641383f94a2db319d90fad5996.jpg); background-size: 100%;">
+    <div class="location" id="forestBtn">
+        Welcome to the Forest. This land was once filled with tree spirits called Ents, who helped protect the forest.
+        There is now only one left, the rest have gone silent turning back into trees because of the evil that has plagued the land. 
+        I may have a potion that can help heal these trees, if we can find the last remaining Ent. We could get a clue in the nearby village.             
+        Lets look at the map and see if we can find a way to the village.
+        <a id="villageBtn" href="./map.html">Lets go!</a>
+        <a href="#treeHater">Forget about the trees</a>
+    </div>
+    <div id="treeHater">
+        Well if you dont want to help then you can go back to the Port.
+        <a id="#goToPort" href="./portDrunk.html">Go to the Port</a>
+    </div>
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+
+</body>
+</html>
+<script>
+   
+    document.getElementById("villageBtn").addEventListener("click", villageVisited);
+    
+    function villageVisited(){
+        window.localStorage.setItem('villageBtn', 'visited');
+    }
+    
+    
+    </script>
+<style>
+html, body, a, #treeHater {
+    height:100%;
+    /* Disable Scroll */
+    overflow:hidden;
+    text-align: center;
+    font-size: 30px;
+    padding: 50px 50px 0px 50px;
+    color: aliceblue;
+    font: 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  }
+  
+  div {
+    height: 100%;
+  }
+  
+  a{
+    color: aliceblue;
+    text-decoration: none;
+}
+a:hover{
+        text-decoration: underline;
+        color: aquamarine;
+    }
+</style>
