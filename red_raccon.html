@@ -64,21 +64,21 @@ function gameLoop() {
   
   let hasMoved = false;
   
-  if (keyPresses.w) {
+  if (keyPresses.w || keyPresses.ArrowUp) {
     positionY -= MOVEMENT_SPEED;
     currentDirection = FACING_UP;
     hasMoved = true;
-  } else if (keyPresses.s) {
+  } else if (keyPresses.s || keyPresses.ArrowDown) {
     positionY += MOVEMENT_SPEED;
     currentDirection = FACING_DOWN;
     hasMoved = true;
   }
 
-  if (keyPresses.a) {
+  if (keyPresses.a || keyPresses.ArrowLeft) {
     positionX -= MOVEMENT_SPEED;
     currentDirection = FACING_LEFT;
     hasMoved = true;
-  } else if (keyPresses.d) {
+  } else if (keyPresses.d || keyPresses.ArrowRight) {
     positionX += MOVEMENT_SPEED;
     currentDirection = FACING_RIGHT;
     hasMoved = true;

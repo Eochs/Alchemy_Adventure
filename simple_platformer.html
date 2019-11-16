@@ -30,8 +30,15 @@
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    width = 1200,
+    image = new Image();
+image.onload = function() {
+        console.log("image loaded!");
+};
+image.src = "./raccoons_red.png";
+
+var width = 1200,
     height = 550,
+    directions = {"down":0,"left":1,"right":2,"up":3},
     player = {
         x: width / 2,
         y: 200,
@@ -42,7 +49,8 @@ var canvas = document.getElementById("canvas"),
         velY: 0,
         jumping: false,
         grounded: false,
-        color: 'black'
+        color: 'black',
+        direction: 'down',
     },
     keys = [],
     friction = 0.9,
@@ -50,7 +58,22 @@ var canvas = document.getElementById("canvas"),
     boxes = [],
     powerup = [];  
 
+const SCALE = 2;
+const WIDTH = 48.6;
+const HEIGHT = 48;
+const SCALED_WIDTH = SCALE * WIDTH;
+const SCALED_HEIGHT = SCALE * HEIGHT;
 
+const CYCLE_LOOP = [0, 1, 0, 2];
+let currentLoopIndex = 0;
+let frameCount = 0;
+const FRAME_LIMIT = 12;
+
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+    ctx.drawImage(image,
+        frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
+        canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
+}
 
 
 powerup.push({
@@ -176,6 +199,8 @@ canvas.width = width;
 canvas.height = height;
 
 function update() {
+
+    let hasMoved = false;
     // check keys
     if (keys[38] || keys[32] || keys[87]) {
         // up arrow or space
@@ -183,18 +208,24 @@ function update() {
             player.jumping = true;
             player.grounded = false;
             player.velY = -player.speed * 2.5;//how high to jump
+            player.direction = "up";
+            hasMoved = true;
         }
     }
     if (keys[39] || keys[68]) {
         // right arrow
         if (player.velX < player.speed) {
             player.velX++;
+            player.direction = "right";
+            hasMoved = true;
         }
     }
     if (keys[37] || keys[65]) {
         // left arrow
         if (player.velX > -player.speed) {
             player.velX--;
+            player.direction = "left";
+            hasMoved = true;
         }
     }
   
@@ -231,10 +262,27 @@ function update() {
     
     player.x += player.velX;
     player.y += player.velY;
+
+    if (hasMoved) {
+        frameCount++;
+        if (frameCount >= FRAME_LIMIT) {
+            frameCount = 0;
+            currentLoopIndex++;
+            if (currentLoopIndex >= CYCLE_LOOP.length) {
+                currentLoopIndex = 0;
+            }
+        }
+    }
   
     ctx.fill();//Draw charater stuff
     ctx.fillStyle = player.color;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    // ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    // ctx.drawImage(image, 0, 0, 48.6, 48, player.x-10, player.y-20, player.width*3, player.height*3);
+    // drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY);
+    drawFrame(CYCLE_LOOP[currentLoopIndex], directions[player.direction], player.x-20, player.y-65);
+
+
     
     //draw powerup stuff 
     for(var j = 0; j < powerup.length; j++){
